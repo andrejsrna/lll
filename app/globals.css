@@ -2,20 +2,107 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Definícia farebných schém */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #ffffff; /* Svetlé pozadie */
+  --foreground: #171717; /* Tmavý text */
+  --primary: #b71c1c; /* Hlavná červená */
+  --secondary: #d32f2f; /* Svetlejšia červená na hover efekty */
+  --accent: #ffebee; /* Svetloružová na jemné zvýraznenia */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0a0a0a; /* Tmavé pozadie */
+    --foreground: #ededed; /* Svetlý text */
+    --primary: #f44336; /* Svetlá červená na tmavom pozadí */
+    --secondary: #ff7961; /* Svetlejší červený odtieň na hover efekty */
+    --accent: #1b1b1b; /* Tmavý odtieň na jemné zvýraznenia */
   }
 }
 
+/* Globálny štýl tela stránky */
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Štýl nadpisov */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary); /* Hlavná červená */
+}
+
+/* Odkazy */
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: var(--secondary); /* Svetlejšia červená */
+  text-decoration: underline;
+}
+
+/* Sekcie */
+section {
+  background: var(--accent); /* Jemné zvýraznenie pozadia sekcie */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Karty */
+.card {
+  background: var(--background);
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-color: var(--secondary);
+}
+
+/* Tlačidlá */
+button {
+  background: var(--primary);
+  color: var(--background);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.2s ease-in-out;
+}
+
+button:hover {
+  background: var(--secondary);
+}
+
+/* Animácie */
+@keyframes bounce-x {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(100px);
+  }
+}
+
+@layer utilities {
+  .animate-bounce-x {
+    animation: bounce-x 2s infinite ease-in-out;
+  }
+  .delay-150 {
+    animation-delay: 0.15s;
+  }
+  .delay-300 {
+    animation-delay: 0.3s;
+  }
+  .delay-450 {
+    animation-delay: 0.45s;
+  }
 }
